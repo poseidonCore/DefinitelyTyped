@@ -664,7 +664,7 @@ declare module "cluster" {
         id: string;
         process: child.ChildProcess;
         suicide: boolean;
-        send(message: any, sendHandle?: any): void;
+        send(message: any, sendHandle?: any): boolean; // https://nodejs.org/dist/latest-v5.x/docs/api/cluster.html#cluster_worker_send_message_sendhandle_callback
         kill(signal?: string): void;
         destroy(signal?: string): void;
         disconnect(): void;
@@ -954,7 +954,7 @@ declare module "child_process" {
         stdio: [stream.Writable, stream.Readable, stream.Readable];
         pid: number;
         kill(signal?: string): void;
-        send(message: any, sendHandle?: any): void;
+        send(message: any, sendHandle?: any): boolean; // https://nodejs.org/dist/latest-v5.x/docs/api/child_process.html#child_process_child_send_message_sendhandle_options_callback
         disconnect(): void;
         unref(): void;
     }
